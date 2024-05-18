@@ -97,7 +97,8 @@ Future<Map<String, dynamic>> runFirebaseCommand(
     runInShell: true,
   );
 
-  final jsonString = process.stdout.toString().replaceFirst(phantomErrorText, '}',);
+  final jsonString = firebaseCLIJsonParse(process.stdout.toString().replaceFirst(phantomErrorText, '}',));
+
   Map<String, dynamic> commandResult;
 
   try {

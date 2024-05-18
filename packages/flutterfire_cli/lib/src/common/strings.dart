@@ -112,6 +112,15 @@ const noPathVariableFound = r'There is no $PATH variable in your environment. '
 const validationCheck =
     'This should be validated before any configuration is written to the project.';
 
+/// Text appended to firebase tools CLI output even when successful. See:
+/// https://github.com/invertase/flutterfire_cli/issues/262
+/// https://github.com/invertase/flutterfire_cli/issues/282
+const appendedErrorText = '''
+}{
+  "status": "error",
+  "error": "Timed out."
+}''';
+
 /// A base class for all FlutterFire CLI exceptions.
 abstract class FlutterFireException implements Exception {}
 
@@ -252,5 +261,17 @@ class ServiceFileException implements FlutterFireException {
   @override
   String toString() {
     return 'ServiceFileRequirementException: $platform - $message';
+  }
+}
+
+class ValidationException implements FlutterFireException {
+  ValidationException(this.platform, this.message) : super();
+
+  final String platform;
+  final String message;
+
+  @override
+  String toString() {
+    return 'ValidationException: $platform - $message';
   }
 }

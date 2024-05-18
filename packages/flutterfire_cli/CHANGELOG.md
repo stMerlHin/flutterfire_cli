@@ -1,3 +1,24 @@
+## 1.0.1-dev.0
+
+ - **FIX**: firebase CLI can sometimes append time out object on successful JSON response. ([#288](https://github.com/invertase/flutterfire_cli/issues/288)). ([14f132e1](https://github.com/invertase/flutterfire_cli/commit/14f132e142a2397afbfa84435ba6b5d95a03f8df))
+ - **FIX**: Raised Firebase project fetch timeout to 40 seconds from 15 seconds. ([#256](https://github.com/invertase/flutterfire_cli/issues/256)). ([2145e9b9](https://github.com/invertase/flutterfire_cli/commit/2145e9b92e4c15c050e7767b83c769a957e0152d))
+ - **FIX**: Support spaces in paths and product name for apple apps ([#228](https://github.com/invertase/flutterfire_cli/issues/228)). ([c4c11b31](https://github.com/invertase/flutterfire_cli/commit/c4c11b3109e9a61feb26d054ba410f66dcdbc051))
+ - **FIX**: throw exceptions when in CI and inputs are needed where user prompts are not possible. Validated bundle Ids for apple and package names for android. ([#276](https://github.com/invertase/flutterfire_cli/issues/276)). ([ddfb1416](https://github.com/invertase/flutterfire_cli/commit/ddfb1416299258bc7afbc9739ce816478d737b9a))
+ - **FEAT**: install command ([#289](https://github.com/invertase/flutterfire_cli/issues/289)). ([e9fa73e7](https://github.com/invertase/flutterfire_cli/commit/e9fa73e71cf89be856a4604cb504e2edb348f382))
+
+## 1.0.0
+
+ - Moved flutterfire_cli package from dev release to general release.
+
+## 0.3.0-dev.21
+
+ - **FIX**(android): ensure app/build.gradle only writes google services dependency once ([#269](https://github.com/invertase/flutterfire_cli/issues/269)). ([f195b16f](https://github.com/invertase/flutterfire_cli/commit/f195b16f0a3131288d4fccf3e1140093a2d68708))
+
+## 0.3.0-dev.20
+
+ - **FIX**: ensure Crashlytics Apple upload-symbol script works for every build type/flavor ([#260](https://github.com/invertase/flutterfire_cli/issues/260)). ([e8ec471d](https://github.com/invertase/flutterfire_cli/commit/e8ec471dfe4ff0f7202d542fae4b04d8c84c97b7))
+ - **FIX**(android): another `build.gradle` change in latest flutter (>=3.16.5) when running `flutter create <project>` ([#254](https://github.com/invertase/flutterfire_cli/issues/254)). ([32fde770](https://github.com/invertase/flutterfire_cli/commit/32fde77008b5a28d6ba856dae9f7a678dc0fbe0d))
+
 ## 0.3.0-dev.19
 
  - **FIX**(apple): upload debug symbols for de-obfuscating Dart stack traces ([#247](https://github.com/invertase/flutterfire_cli/issues/247)). ([93d02a56](https://github.com/invertase/flutterfire_cli/commit/93d02a5659183cb4e8edeac88965e7a6a99e6c63))

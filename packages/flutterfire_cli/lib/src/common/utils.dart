@@ -26,6 +26,7 @@ import 'package:path/path.dart'
 
 import '../flutter_app.dart';
 import 'platform.dart';
+import 'strings.dart';
 
 /// Key for windows platform.
 const String kWindows = 'windows';
@@ -502,5 +503,41 @@ String getXcodeProjectPath(String platform) {
     Directory.current.path,
     platform,
     'Runner.xcodeproj',
+  );
+}
+
+void validateAppBundleId(
+  String bundleId,
+  String platform,
+) {
+  final bundleIdRegex = RegExp(
+    r'^[a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)+$',
+  );
+
+  if (!bundleIdRegex.hasMatch(bundleId)) {
+    throw ValidationException(
+      platform,
+      'Invalid Apple App Bundle ID',
+    );
+  }
+}
+
+void validateAndroidPackageName(String appId) {
+  final appIdRegex = RegExp(
+    r'^[a-zA-Z]+(\.[a-zA-Z_][a-zA-Z0-9_]*)+$',
+  );
+
+  if (!appIdRegex.hasMatch(appId)) {
+    throw ValidationException(
+      kAndroid,
+      'Invalid Android Package Name',
+    );
+  }
+}
+
+String firebaseCLIJsonParse(String output) {
+  return output.replaceFirst(
+    appendedErrorText,
+    '}',
   );
 }
